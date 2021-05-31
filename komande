@@ -1,0 +1,40 @@
+-- how to add specific package
+dotnet add package Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+
+-- to add migrations
+dotnet ef migrations add <NAME>
+
+-- to remove migrations
+dotnet ef migrations remove
+
+-- to update database
+dotnet ef database update
+
+-- to insert into database
+insert into Book values('Knjiga', 'Marko')
+
+
+### tips and tricks
+- Controler classes extend ControllerBase
+- services.AddScoped<interface, repo> kinda dependency injection
+after this add a ctor to Controller class, for dependency to be injected
+- To access and change database create DataBaseContext class that inherits DbContext
+- Use DbSet<NameOfTheModel> to represent a Model you want in database
+- To connect to databse you need to setup ConnectionStrings in appsettings.json
+- Add ConnectionStrings to services.AddDbContext
+- You are free to use EF Migrations
+- After migrations update database
+- You can add attributes to your Model properties with DataAnotations package e.g ([Key],[Required]...)
+- Add AutoMapper package and add it to services
+- Add Profile folder where you will keep all your mapings, create a class which extends Profile class from 
+AutoMapper package
+
+### Packages
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.SqlServer
+AutoMapper.Extensions.Microsoft.DependencyInjection
+------
+Microsoft.AspNetCore.JsonPatch					next two are for patching
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
+------
